@@ -1,0 +1,54 @@
+<template>
+  <div id="app">
+    <div id="nav">
+      <!-- 追加 -->
+      <sample :parent-message="state.message" />
+      <!-- <p>{{ state.message }}</p> -->
+      <p>
+        <button type="button" @click="onClick">メッセージを変更</button>
+      </p>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view />
+  </div>
+</template>
+
+<script lang="ts">
+import { defineComponent, reactive } from "vue";
+import Sample from "./components/Sample.vue";
+// import { AppState, useAppState } from './utils';
+// type State = AppState
+
+interface State {
+  message: String;
+}
+
+export default defineComponent({
+  name: "App",
+  components: { Sample },
+  setup() {
+    
+    const state = reactive<State>({
+      message: "Hello Sample",
+    });
+    // 追加
+    const onClick = () => {
+      state.message = "clicked";
+    };
+    // const [state, onClick] = useAppState();
+
+    return {
+      state,
+      // 追加
+      onClick,
+    };
+  },
+});
+</script>
+
+<style lang="css" scoped>
+#nav {
+  margin-top: 30px;
+}
+</style>
