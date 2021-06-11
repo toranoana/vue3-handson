@@ -4,6 +4,44 @@
 
 資料と合わせてご確認ください。
 
+# 動かし方
+
+dockerを利用する場合と、素直にPC上で動かす場合の2パターンあります。
+
+## dockerを利用する場合
+
+docker及びdocker-composeが利用可能なことが条件となります。
+
+- `docker-compose up -d`
+- `docker exec -it vue3-handson ash`
+- 任意のディレクトリにcdして、`npm install` 後、 `npm run dev` を実行
+- <http://localhost:3000>にアクセス
+
+例
+
+```sh
+docker-compose up -d
+docker exec -it vue3-handson ash # ここまでホストマシン上
+cd 00.init_template
+npm install
+npm run dev
+```
+
+## PC上で直接動かす場合
+
+Node.js v14がインストールされていることが条件になります。
+
+- 任意のディレクトリにcdして、`npm install` 後、 `npm run dev` を実行
+- <http://localhost:3000>にアクセス
+
+例
+
+```sh
+cd 00.init_template
+npm install
+npm run dev # すべてホストマシン上で実行
+```
+
 # ディレクトリ構成
 
 以下発表資料の章と対応しています。
@@ -29,4 +67,3 @@
   - computedとwatchを利用したデータの監視方法説明用です
 - `09.routing`
   - ルーティング説明用です
-

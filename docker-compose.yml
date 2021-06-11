@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  vue3-handson:
+    build:
+      context: ./
+    container_name: vue3-handson
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/var/www/app
+    command: tail -f /dev/null
+    networks:
+      - default
+
+
+
